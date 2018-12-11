@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Specialities</ion-title>
+    <ion-buttons end>
+      <button (click)="addSpeciality()" icon-only ion-button color="primary">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      Specialities
+    </ion-card-header>
+    <ion-card-content>
+      <chef-specialities *ngIf="chefId" [chefId]="chefId"></chef-specialities>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

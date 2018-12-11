@@ -1,0 +1,15 @@
+<ion-header>
+
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Register as Customer</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <register-user [disabled]="disabled" [mode]="mode" [userType]="userType" (onRegistered)="onRegistered($event)"></register-user>
+  </ion-content>

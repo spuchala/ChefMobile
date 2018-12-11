@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Check Out</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <cart [mode]="cartMode"></cart>
+  <address [user]="user"></address>
+  <div padding>
+    <p>
+      <button ion-button color="primary" (click)=checkOut() block>Check Out</button>
+    </p>
+    <p>
+      <button ion-button color="light" (click)="cancel()" block>Cancel</button>
+    </p>
+  </div>
+</ion-content>

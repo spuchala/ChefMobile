@@ -1,0 +1,11 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Account</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <register-user [disabled]="disabled" [mode]="mode" [user]="user" [userType]="userType"></register-user>
+</ion-content>

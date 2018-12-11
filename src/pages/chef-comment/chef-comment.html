@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Comments</ion-title>
+    <ion-buttons end>
+      <button (click)="addComment()" icon-only ion-button color="primary">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      Comment
+    </ion-card-header>
+    <ion-card-content>
+      <chef-comments *ngIf="chefId" [chefId]="chefId" [refresh]="commentsAdded" [mode]="commentsMode"></chef-comments>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

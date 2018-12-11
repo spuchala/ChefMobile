@@ -1,0 +1,24 @@
+<ion-list>
+  <ion-item *ngFor="let menuItem of menu">
+    <ion-avatar item-start>
+      <img [src]="menuItem.image">
+    </ion-avatar>
+    <h2>{{menuItem.title}}</h2>
+    <p>{{menuItem.description}}</p>
+    <ion-note item-end>
+      <button *ngIf="mode==='order'" [disabled]="menuItem.disabled" (click)="openOrder(menuItem)" ion-button icon-only>
+        <ion-icon name="add">
+        </ion-icon>
+      </button>
+      <button *ngIf="mode==='account'" [disabled]="menuItem.disabled" (click)="editMenuItem(menuItem)" ion-button icon-only>
+        <ion-icon name="create">
+        </ion-icon>
+      </button>
+      <button color="danger" *ngIf="mode==='account'" [disabled]="menuItem.disabled" (click)="removeMenuItem(menuItem)" ion-button
+        icon-only>
+        <ion-icon name="trash">
+        </ion-icon>
+      </button>
+    </ion-note>
+  </ion-item>
+</ion-list>

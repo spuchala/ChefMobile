@@ -1,0 +1,7 @@
+<ion-tabs class="tabs-icon-text" [color]="isAndroid ? 'royal' : 'primary'">
+  <ion-tab tabIcon="person" tabTitle="Account" *ngIf="chefParams" [rootParams]="chefParams" [root]="chefAccountPage"></ion-tab>
+  <ion-tab tabIcon="list-box" [rootParams]="chefParams" tabTitle="Specialities" [root]="chefAccountPage"></ion-tab>
+  <ion-tab tabIcon="paper" tabTitle="Menu" [rootParams]="chefParams" [root]="chefAccountPage"></ion-tab>
+  <ion-tab tabIcon="cog" tabTitle="Preferences" [rootParams]="chefParams" [root]="chefAccountPage"></ion-tab>
+  <ion-tab tabIcon="chatbubbles" tabTitle="Comments" [rootParams]="chefParams" [root]="chefAccountPage"></ion-tab>
+</ion-tabs>

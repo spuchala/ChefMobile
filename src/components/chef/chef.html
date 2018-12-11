@@ -1,0 +1,8 @@
+<ion-item (click)="showChefDetails()">
+  <ion-avatar item-start>
+    <img [src]="chef.image">
+  </ion-avatar>
+  <h2>{{chef.firstName}} {{chef.lastName}}</h2>
+  <h3>{{chef.description}}</h3>
+  <rating [(ngModel)]="starRating" readOnly="true" max="5" emptyStarIconName="star-outline"></rating>
+</ion-item>

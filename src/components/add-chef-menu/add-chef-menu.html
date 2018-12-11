@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{title}}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <form #manageMenu="ngForm">
+      <ion-item>
+        <ion-input type="text" name="menuItem" [(ngModel)]="menuItem.title" placeholder="Menu Item" required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" name="menuItemDescription" [(ngModel)]="menuItem.description" placeholder="Description">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" type="number" name="menuItemPrice" [(ngModel)]="menuItem.price" placeholder="Amount" required>
+        </ion-input>
+      </ion-item>
+    </form>
+  </ion-list>
+  <div padding>
+    <p>
+      <button ion-button color="primary" [disabled]="manageMenu.invalid" (click)="submit()" block>{{submitButtomTitle}}</button>
+    </p>
+    <p>
+      <button ion-button color="light" (click)="dismiss()" block>Cancel</button>
+    </p>
+  </div>
+</ion-content>

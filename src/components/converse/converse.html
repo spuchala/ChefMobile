@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{data.heading}}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <form #converseForm="ngForm">
+      <ion-item>
+        <ion-input type="text" [disabled]="data.mode==='readOnly'" name="comments" maxlength="3000" [(ngModel)]="data.comments" placeholder="comments"
+          required>
+        </ion-input>
+      </ion-item>
+    </form>
+  </ion-list>
+  <div padding>
+    <p *ngIf="data.mode!=='readOnly'">
+      <button ion-button color="primary" [disabled]="converseForm.invalid" (click)="submit()" block>{{data.submitButtonText}}</button>
+    </p>
+    <p>
+      <button ion-button color="light" (click)="dismiss()" block>Cancel</button>
+    </p>
+  </div>
+</ion-content>

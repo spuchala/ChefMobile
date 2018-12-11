@@ -1,0 +1,6 @@
+<ion-chip *ngFor="let speciality of specialities">
+  <ion-label>{{speciality.title}}</ion-label>
+  <button *ngIf="!disabled" ion-button (click)="removeSpeciality(speciality)">
+    <ion-icon name="close"></ion-icon>
+  </button>
+</ion-chip>

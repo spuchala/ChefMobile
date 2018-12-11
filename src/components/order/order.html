@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Order
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-range [disabled]="order.mode==='readOnly'" min="1" max="5" [(ngModel)]="order.spiceLevel">
+        <ion-icon range-left small name="flame"></ion-icon>
+        <ion-icon range-right name="flame"></ion-icon>
+      </ion-range>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Quantity</ion-label>
+      <ion-input type="text" [disabled]="order.mode==='readOnly'" [(ngModel)]="order.quantity"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>When</ion-label>
+      <ion-datetime [disabled]="order.mode==='readOnly'" displayFormat="MMM DD YYYY" [(ngModel)]="order.when"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Comments</ion-label>
+      <ion-input [disabled]="order.mode==='readOnly'" type="text" [(ngModel)]="order.comments"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <p *ngIf="order.mode!=='readOnly'">
+      <button ion-button color="primary" (click)=addOrder() block>{{addButtonTitle}}</button>
+    </p>
+    <p>
+      <button ion-button color="light" (click)="dismiss()" block>Cancel</button>
+    </p>
+  </div>
+</ion-content>

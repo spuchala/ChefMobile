@@ -1,0 +1,7 @@
+{
+  "name": "chef",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

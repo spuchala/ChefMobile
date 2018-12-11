@@ -1,0 +1,6 @@
+<ion-tabs class="tabs-icon-text" [color]="isAndroid ? 'royal' : 'primary'">
+  <ion-tab tabIcon="list-box" tabTitle="New" [rootParams]="inQueueParams" [root]="rootPage"></ion-tab>
+  <ion-tab tabIcon="arrow-dropright-circle" [rootParams]="inProcessParams" tabTitle="Process" [root]="rootPage"></ion-tab>
+  <ion-tab tabIcon="done-all" tabTitle="Completed" [rootParams]="completedParams" [root]="rootPage"></ion-tab>
+  <ion-tab tabIcon="trash" tabTitle="Rejected" [rootParams]="deletedParams" [root]="rootPage"></ion-tab>
+</ion-tabs>

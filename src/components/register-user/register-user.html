@@ -1,0 +1,54 @@
+<form #registerChef="ngForm">
+  <ion-item>
+    <ion-input type="text" disabled="{{disabled}}" name="firstName" [(ngModel)]="user.firstName" placeholder="First Name" required>
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" disabled="{{disabled}}" name="lastName" [(ngModel)]="user.lastName" placeholder="Last Name" required>
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="email" disabled="{{disabled}}" name="email" email="true" [(ngModel)]="user.email" placeholder="Email"
+      required>
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="tel" disabled="{{disabled}}" [pattern]="phoneRegex" name="phone" [(ngModel)]="user.phone"
+      placeholder="Phone" required>
+    </ion-input>
+  </ion-item>
+  <ion-item *ngIf="!disabled&&mode==='register'">
+    <ion-input pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-_]).{8,}$" type="password" name="password" [(ngModel)]="user.password"
+      placeholder="Password" required>
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" disabled="{{disabled}}" name="address" [(ngModel)]="user.address" placeholder="Address" required>
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input disabled="{{disabled}}" name="city" [(ngModel)]="user.city" placeholder="City" required>
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-select name="state" disabled="{{disabled}}" placeholder="State" [(ngModel)]="user.state" required>
+      <ion-option *ngFor="let state of states" [value]="state.abbreviation">
+        {{ state.name }}
+      </ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-input type="number" disabled="{{disabled}}" name="zipCode" maxlength="5" [(ngModel)]="user.zipCode" placeholder="ZipCode"
+      required>
+    </ion-input>
+  </ion-item>
+  <ion-item *ngIf="userType==='chef'||userType==='Chef'">
+    <ion-input disabled="{{disabled}}" name="description" [(ngModel)]="user.description" placeholder="A Little Description About You"
+      ng-required="userType==='chef'">
+    </ion-input>
+  </ion-item>
+  <button *ngIf="!disabled&&mode==='register'" ion-button full type="submit" (click)="register()" [disabled]="registerChef.invalid">Register</button>
+  <button *ngIf="disabled&&mode=='edit'" ion-button full type="submit" (click)="disabled=false" [disabled]="registerChef.invalid">Edit</button>  
+  <button *ngIf="!disabled&&mode==='edit'" ion-button full type="submit" (click)="save()" [disabled]="registerChef.invalid">Save</button>
+  <button *ngIf="!disabled&&mode==='edit'" ion-button full color="light" (click)="disabled=true">Cancel</button>
+</form>

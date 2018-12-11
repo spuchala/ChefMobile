@@ -1,0 +1,13 @@
+<ion-list>
+  <ion-item *ngFor="let commentData of comments">
+    <ion-label>
+      {{commentData.comment}}
+    </ion-label>
+    <ion-note item-end>
+      <button color="danger" *ngIf="mode==='account'" (click)="removeComment(commentData,$index)" ion-button icon-only>
+        <ion-icon name="trash">
+        </ion-icon>
+      </button>
+    </ion-note>
+  </ion-item>
+</ion-list>

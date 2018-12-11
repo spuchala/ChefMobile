@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Your Orders</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content>
+    <batch-orders *ngIf="batchOrders&&orderType!=='Deleted'" [ordersFor]="userType" [batches]="batchOrders" [mode]="mode"></batch-orders>
+    <ion-card *ngIf="noOrders">
+      <ion-card-content>
+        No Orders
+      </ion-card-content>
+    </ion-card>
+    <ion-list *ngIf="deletedOrders">
+      <ion-item *ngFor="let order of deletedOrders">
+        <h2>{{order.menuItem.title}}</h2>
+        <p>by {{order.createdBy.firstName}} {{order.createdBy.lastName}}}</p>
+        <ion-note item-end>
+          <button ion-button color="primary" (click)="getOrderRejectedComment(order.id)" icon-only>
+            <ion-icon name="list-box"></ion-icon>
+          </button>
+        </ion-note>
+      </ion-item>
+    </ion-list>
+  </ion-content>

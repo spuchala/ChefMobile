@@ -1,0 +1,7 @@
+<button (click)="openSearch()" icon-only ion-button color="primary">
+  <ion-icon name="search"></ion-icon>
+</button>
+<button *ngIf="getOrdersInCartCount()>0" (click)="openCart()" icon-only ion-button color="primary">
+  <ion-badge *ngIf="n" color="accent">{{getOrdersInCartCount()}}</ion-badge>
+  <ion-icon name="cart"></ion-icon>
+</button>

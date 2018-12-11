@@ -1,0 +1,8 @@
+<ion-list *ngIf="mode!=='read'">
+  <ion-item *ngFor="let preference of chefPreferences">
+    <ion-label>
+      {{preference.question}}
+    </ion-label>
+    <ion-toggle [(ngModel)]="preference.answer" (ionChange)="updateChefPreferences(preference,$index)"></ion-toggle>
+  </ion-item>
+</ion-list>

@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>cart</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <cart></cart>
+  <div padding>
+    <p>
+      <button ion-button color="primary" (click)=checkOut() block>Check Out</button>
+    </p>
+    <p>
+      <button ion-button color="light" (click)="cancel()" block>Cancel</button>
+    </p>
+  </div>
+</ion-content>

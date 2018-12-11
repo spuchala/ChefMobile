@@ -1,0 +1,10 @@
+<ion-list *ngIf="reviews&&reviews.length>0">
+    <ion-item *ngFor="let review of reviews">
+        {{review.review}}
+    </ion-item>
+</ion-list>
+<ion-list *ngIf="!reviews||reviews.length===0">
+    <ion-item>
+        No Reviews
+    </ion-item>
+</ion-list>

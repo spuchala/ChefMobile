@@ -1,0 +1,23 @@
+<ion-list *ngFor="let batch of batches">
+  <ion-list-header *ngIf="ordersFor==='Chef'">
+    {{batch.createdBy.firstName}} {{batch.createdBy.lastName}} Orders
+  </ion-list-header>
+  <ion-list-header *ngIf="ordersFor==='Customer'">
+    {{batch.createdOn}}
+  </ion-list-header>
+  <ion-item *ngFor="let order of batch.orders">
+    <ion-avatar item-start>
+      <img [src]="order.menuItem.image" />
+    </ion-avatar>
+    <h2>{{order.menuItem.title}}</h2>
+    <p>{{order.when}}</p>
+    <ion-note item-end *ngIf="allowActions">
+      <button ion-button color="primary" (click)="viewOrder(batch.id, order)" icon-only>
+        <ion-icon name="list-box"></ion-icon>
+      </button>
+      <button ion-button color="danger" (click)="deleteOrder(batch.id, order)" icon-only>
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-note>
+  </ion-item>
+</ion-list>

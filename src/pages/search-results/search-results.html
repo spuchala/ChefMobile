@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>search-results</ion-title>
+    <ion-buttons end>
+      <utils></utils>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <chef-info *ngFor="let chef of chefs" [chef]="chef" [interactWithChef]="true"></chef-info>
+  </ion-list>
+</ion-content>
